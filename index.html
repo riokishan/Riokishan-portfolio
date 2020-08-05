@@ -36,6 +36,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- /Fonts -->
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- //Fonts -->
 
 </head>
@@ -98,7 +100,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </section>
                     <section id="content4" class="inner-w3layouts-wrap">
                         <h3 class="head-w3ls"> Get In Touch</h3>
-                        <form name="contact-form" class="contact-form" method="post" action="#">
+                        <form name="contact-form" class="contact-form"  action="">
                             <div class="row">
                                 <div class="col-6 con-gd">
                                     <div class="form-group">
@@ -162,6 +164,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <!--//main-content-->
+         <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbyWcIgf9djKtZcyiTT9qS4v0n6c7h71L1WaIz0vHA/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 
 
 </body>
